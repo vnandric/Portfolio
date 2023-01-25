@@ -1,6 +1,15 @@
-.background {
-    padding: 600px;
-    background-image: url(../../src/media/code-pic.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100vw 800px;
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.htmlbox {
+    background-image: url(../../src/media/htmlbackground.jpg);
+    background-size: 100vw;
+}
+
+.html {
+    max-height: 150px;
+    width: auto;
+    margin: 20px;
 }
