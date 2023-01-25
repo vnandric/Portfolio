@@ -1,0 +1,6 @@
+.background {
+    padding: 600px;
+    background-image: url(../../src/media/code-pic.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100vw 800px;
+}

@@ -1,8 +1,11 @@
 import { type NextPage } from "next";
 import Head from "next/head"; 
 
-import Nav from "../../components/navbar/navbar";
+import Navbar from "../../components/navbar-daisy/navbar";
+
 import Line from "../../components/line/line";
+import About from "../../components/about/about";
+import Talen from "../../components/talen/talen";
 
 const Home: NextPage = () => {
   return (
@@ -14,8 +17,10 @@ const Home: NextPage = () => {
       </Head>
       
       <main>
-      <Nav />
+      <Navbar />
       <Line />
+      <About />
+      <Talen />
       </main>
     </>
   );
