@@ -1,15 +1,100 @@
 .box {
     display: flex;
     flex-direction: column;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 .htmlbox {
     background-image: url(../../src/media/htmlbackground.jpg);
     background-size: 100vw;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
 }
 
-.html {
+.cssbox {
+    background-image: url(../../src/media/cssbackground.jpg);
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+.imgheights {
     max-height: 150px;
     width: auto;
     margin: 20px;
+    border-radius: 5px;
+}
+
+.htmluitleg {
+    background-color: rgb(23, 23, 23,0.8);
+    border: 2px solid white;
+    border-radius: 10px;
+    min-height: 80px;
+    max-height: 200px;
+    width: 43vw;
+    min-width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cssuitleg {
+    background-color: rgb(23, 23, 23,0.8);
+    border: 2px solid white;
+    border-radius: 10px;
+    min-height: 80px;
+    max-height: 200px;
+    width: 43vw;
+    min-width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.htmluitleg > div {
+    color: white;
+    padding: 10px;
+    font-size: 1.1rem;
+}
+
+.cssuitleg > div {
+    color: white;
+    margin: 10px;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 700px) {
+    .htmluitleg {
+        min-height: 140px;
+        max-height: 1000px;        
+    }
+}
+
+@media (max-width: 510px) {
+
+    .cssuitleg {
+        min-height: 300px; 
+        max-height: 1000px;       
+    }
+}
+
+@media (max-width: 1070px) {
+    .htmlbox {
+        background-repeat: repeat-y;
+        flex-direction: column;
+        min-height: 800px;
+    }
+
+    .cssbox {
+        background-repeat: repeat-y;
+        flex-direction: column;
+        min-height: 800px;
+    }
 }
