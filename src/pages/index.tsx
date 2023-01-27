@@ -6,6 +6,7 @@ import Navbar from "../../components/navbar-daisy/navbar";
 import Line from "../../components/line/line";
 import About from "../../components/about/about";
 import Talen from "../../components/talen/talen";
+import Form from "../../components/form/form";
 
 const Home: NextPage = () => {
   return (
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
       <Line />
       <About />
       <Talen />
+      <Form />
       <Line />
       </main>
     </>
