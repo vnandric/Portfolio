@@ -1,4 +1,4 @@
-import styles from "../styles/about.module.css";
+import styles from "./about.module.css";
 import Image from "next/image";
 import CHAD from "../../src/media/chad.jpg"
 
