@@ -7,6 +7,7 @@ import Line from "../../components/line/line";
 import About from "../../components/about/about";
 import Talen from "../../components/talen/talen";
 import Form from "../../components/form/form";
+import { ScrollToTop } from "../../components/scrolltotop/ScrollToTop";
 
 const Home: NextPage = () => {
   return (
@@ -18,12 +19,12 @@ const Home: NextPage = () => {
       </Head>
       
       <main>
-      <Navbar />
-      <Line />
-      <About />
-      <Talen />
-      <Form />
-      <Line />
+        <ScrollToTop />
+        <Navbar />
+        <Line />
+        <About />
+        <Talen />
+        <Form />
       </main>
     </>
   );

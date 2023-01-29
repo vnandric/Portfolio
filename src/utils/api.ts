@@ -63,3 +63,8 @@ export type RouterInputs = inferRouterInputs<AppRouter>;
  * @example type HelloOutput = RouterOutputs['example']['hello']
  **/
 export type RouterOutputs = inferRouterOutputs<AppRouter>;
+
+
+export const classNames = (...classes: any[]) => {
+  return classes.filter(Boolean).join(' ')
+}
