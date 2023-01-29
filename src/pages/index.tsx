@@ -21,7 +21,6 @@ const Home: NextPage = () => {
       <main>
         <ScrollToTop />
         <Navbar />
-        <Line />
         <About />
         <Talen />
         <Form />

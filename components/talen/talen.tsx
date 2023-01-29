@@ -10,7 +10,7 @@ import project1 from "../../src/media/img1.jpg";
 const talen = () => {
     return (
         <div id="talen" className={styles.box}>
-            <div className={styles.htmlbox}>
+            <div className={styles.talenbox}>
                 <Image alt='jpg' src={html5pic} className={styles.htmlimg}></Image>
                 <div className={styles.htmluitleg}>
                     <div>
@@ -24,7 +24,7 @@ const talen = () => {
                 </div>
             </div>
 
-            <div className={styles.cssbox}>
+            <div className={styles.talenbox}>
                 <Image alt='jpg' src={css3pic} className={styles.imgheights}></Image>
                 <div className={styles.uitleg}>
                     <div>
@@ -38,7 +38,7 @@ const talen = () => {
                 </div>
             </div>
 
-            <div className={styles.jsbox}>
+            <div className={styles.talenbox}>
                 <Image alt='jpg' src={jspic} className={styles.imgheights}></Image>
                 <div className={styles.uitleg}>
                     <div>
