@@ -8,7 +8,7 @@ const form = () => {
     const [email, setEmail] = useState<string>("");
 
     return (
-        <div className={styles.flexbox}>
+        <div id="gegevens" className={styles.flexbox}>
             <h1>Mijn gegevens</h1>
             <p>
                 Als u uw mail hier beneden invult, dan zal er een mail

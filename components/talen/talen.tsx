@@ -18,32 +18,39 @@ const talen = () => {
                         wat leuks me.
                     </div>
                 </div>
-                <Image alt='png' src={project1} className={styles.imgheights}></Image>
-                <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                <div className={styles.projectpic}>
+                    <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                    <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                </div>
             </div>
 
             <div className={styles.cssbox}>
-                <Image alt='png' src={project1} className={styles.imgheights}></Image>
-                <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                <Image alt='jpg' src={css3pic} className={styles.imgheights}></Image>
                 <div className={styles.uitleg}>
                     <div>
-                        Zonder CSS is de HTML dus dit kan ik ook. Vind backend develpen leuker maar bij CSS beschik ik de basis
-                        ook wel. Speel met de site om te zien dat hij ook responsive is!
+                        Zonder CSS is de HTML dus dit kan ik ook. Vind backend develpen leuker maar bij CSS beschik 
+                        ik de basis ook wel. Speel met de site om te zien dat hij ook responsive is!
                     </div>
                 </div>
-                <Image alt='jpg' src={css3pic} className={styles.imgheights}></Image>
+                <div className={styles.projectpic}>
+                    <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                    <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                </div>
             </div>
 
             <div className={styles.jsbox}>
                 <Image alt='jpg' src={jspic} className={styles.imgheights}></Image>
                 <div className={styles.uitleg}>
                     <div>
-                        Javascript is ook een optie bij HTML voor diversen dingen. Ik heb hier ook de basis, Ik snap de code vaak wel maar zelf kan ik en doe ik er niet veel mee. Altans geen
+                        Javascript is ook een optie bij HTML voor diversen dingen. Ik heb hier ook de basis, Ik 
+                        snap de code vaak wel maar zelf kan ik en doe ik er niet veel mee. Altans geen
                         gecompliceerde dingen.
                     </div>
                 </div>
-                <Image alt='png' src={project1} className={styles.imgheights}></Image>
-                <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                <div className={styles.projectpic}>
+                    <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                    <Image alt='png' src={project1} className={styles.imgheights}></Image>
+                </div>
             </div>
         </div>
     

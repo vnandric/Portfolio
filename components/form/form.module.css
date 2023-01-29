@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 500px;
+    color: white;
 }
 
 .flexbox > h1 {
