@@ -16,29 +16,19 @@ const about = () => {
                     </p>
                     <h1 className="text-center text-3xl p-5">Opleiding</h1>
                     <p className="text-xl">
-                        Ik volg de Opleiding Software Developer op het Grafisch Lyceum in Rotterdam. Ik zit hier in het
-                        2de jaar en dit is een 3 jarig durende Opleiding, waarvan het laatse jaar vooral uit stage bestaat.
-                        Ik heb hiervoor niet een andere opleiding gedaan, maar ik ben wel een jaar blijven zitten op de
-                        middelbare school. Soms leer je op een harde manier van je fouten. Ik heb hier geen spijt van, dit heeft
-                        mij alleen maar een hardere werker gemaakt.             
+                        Ik volg de opleiding software developer op het Grafisch Lyceum in Rotterdam. Hier zit ik in het 
+                        tweede jaar en moet ik nog 1 jaar stage lopen om mijn opleiding af te ronden.           
                     </p>
                     <h1 className="text-center text-3xl p-5">Sport</h1>
                     <p className="text-xl">
-                        Naast mijn opleiding ben ik ook een keeper bij een voetbalclub. Op moment keep ik bij Capelle O23-01
-                        en heb ik hoopelijk al een paar stappen gezet binnen de club om hoger op te kunnen komen. Ik is 
-                        namelijk een nieuwe club voor mij. Maar ik zit al op voetbal sinds mijn 9de en was eerst een speler.
-                        Na een paar jaar volledig eigenwijs te zijn besloot ik toch maar te keepen, want in pricipe deed ik 
-                        beide maar kon toch wel beter keepen en ik mocht daar ook eigenwijs zijn. Als ik de ballen maar tegenhoud
-                        zal de trainer er geen problemen mee hebben. Voor het keepen ga ik ook naar de sportschool om meer 
-                        kracht op te kunnen bouwen. Ik train 3 a 4 keer bij de club en daarnaast, wanneer ik geen training heb 
-                        ga ik naar de sportschool. Dus ik ben best wel een sportief persoon.    
+                        Naast school zit ik op voetbal en ga ik naar de sportschool om meer kracht op te bouwen. Ik ben 
+                        namelijk een keeper. Ik ben dus ook best veel bezig met sporten.    
                     </p>
                     <h1 className="text-center text-3xl p-5">Werk</h1>
                     <p className="text-xl">
-                        Ik heb redelijk werk ervaring maar niet binnen mijn beroep het software development. Ik heb wel bij 2 
-                        horeca's en op moment werk ik bij de Albert Heijn. Ik heb 8 maanden bij mijn eerste horeca gewerkt in 
-                        Rotterdam, bij de Rodeo in de buurt van het Erasmus brug. Hier was ik spoeler maar moest ik stoppen, omdat
-                        het best zwaar was, ik ging naar school, ik voetbalde en ik was nog best jong(15). Bij de volgende 
+                        Ik heb bij 2 horeca's gewerkt en ik werk nu bij de Albert Heijn om nog een beetje inkomsten te hebben 
+                        en om te socializen. Binnen mijn vak gebied heb ik nog geen ervaring binnen en bedrijf maar ik 
+                        hoop voor mijn stage een leuk bedrijf te vinden waar ik mijn kennis kan uitbreiden.
                     </p>
                 </div>
                 <Image alt='png' src={CHAD} className={styles.img}></Image>
