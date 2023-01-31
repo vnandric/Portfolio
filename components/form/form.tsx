@@ -9,7 +9,7 @@ const form = () => {
 
     return (
         <div id="gegevens" className={styles.flexbox}>
-            <h1>Mijn gegevens</h1>
+            <h1 className="text-cyan-300">Mijn gegevens</h1>
             <p>
                 Als u uw mail hier beneden invult, dan zal er een mail
                 naar u verzonden worden met mijn gegevens!
