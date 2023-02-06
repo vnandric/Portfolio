@@ -4,9 +4,8 @@ import Head from "next/head";
 import Navbar from "../../components/navbar-daisy/navbar";
 import Uv from "../../components/under-navbar/uv";
 
-import Line from "../../components/line/line";
 import About from "../../components/about/about";
-import Talen from "../../components/talen/talen";
+import Projecten from "../../components/projecten/projecten";
 import Form from "../../components/form/form";
 import { ScrollToTop } from "../../components/scrolltotop/ScrollToTop";
 
@@ -24,7 +23,7 @@ const Home: NextPage = () => {
         <Navbar />
         <Uv />
         <About />
-        <Talen />
+        <Projecten />
         <Form />
       </main>
     </>

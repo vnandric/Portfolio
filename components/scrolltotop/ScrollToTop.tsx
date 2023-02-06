@@ -38,7 +38,7 @@ export const ScrollToTop = () => {
                 isVisible ? 'opacity-100' : 'opacity-0',
                 'bg-{#171717} hover:bg-cyan-400 focus:ring-cyan-500 inline-flex items-center rounded-full p-3 text-white shadow-sm transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 m-3',
                 )}>
-                <BiArrowFromBottom className="h-6 w-6" aria-hidden="true"/>
+                <BiArrowFromBottom className="h-8 w-8" aria-hidden="true"/>
             </button>
         </div>
     );

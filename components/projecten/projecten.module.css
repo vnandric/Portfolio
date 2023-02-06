@@ -1,0 +1,61 @@
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.box > div > h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: cyan;
+}
+
+.box > div > p {
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+    max-width: 80vw;
+    margin-bottom: 100px;
+}
+
+.pics {
+    height: 250px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.flex_box {
+    display: flex;
+    flex-direction: row;
+}
+
+.pic_box {
+    width: 500px;
+    margin-top: 25px;
+}
+
+.pic_box > h3 {
+    font-size: 1.5rem;
+    color: cyan;
+    margin-left: 10px;
+}
+
+.pic_box > p {
+    font-size: 1rem;
+    color: #fff;
+    margin-left: 10px;
+    width: 450px;
+}
+
+@media (max-width: 1600px) {
+    .flex_box {
+        flex-direction: column;
+    }
+
+    .pic_box {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+}

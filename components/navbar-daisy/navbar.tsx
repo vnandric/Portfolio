@@ -8,8 +8,8 @@ const navbar = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#202020] rounded-box w-52">
-                    <li><a href="#about" className="text-white text-xl">About</a></li>
-                    <li tabIndex={0}>
+
+                    {/* <li tabIndex={0}> */}
                     {/* <a className="justify-between">
                         Parent
                         <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
@@ -18,11 +18,13 @@ const navbar = () => {
                         <li><a>Submenu 1</a></li>
                         <li><a>Submenu 2</a></li>
                     </ul> */}
-                    </li>
-                    <li><a href="#talen" className="text-white text-xl">Talen</a></li>
+                    {/* </li> */}
+                    <li><a href="#about" className="text-white text-xl">About</a></li>
+                    <li><a href="#projecten" className="text-white text-xl">Projecten</a></li>
+                    <li><a href="#gegevens" className="text-white text-xl">Gegevens</a></li>
                 </ul>
                 </div>
-                <div className="normal-case text-xl text-white p-4">Valentino Andric</div>
+                <div className="normal-case text-xl text-cyan-300 p-4">Valentino Andric</div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -37,12 +39,12 @@ const navbar = () => {
                     <li><a>Submenu 2</a></li>
                     </ul>
                 </li> */}
-                <li><a href="#talen" className="text-white text-2xl">Talen</a></li>
+                <li><a href="#projecten" className="text-white text-2xl">Projecten</a></li>
                 <li><a href="#gegevens" className="text-white text-2xl">Gegevens</a></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                {/* <a className="btn">Get started</a> */}
             </div>
             </div>
     )
