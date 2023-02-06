@@ -1,6 +1,4 @@
 import styles from "./about.module.css";
-import Image from "next/image";
-import pfp from "../../src/media/pfp.jpg";
 
 const about = () => {
     return (
@@ -31,7 +29,7 @@ const about = () => {
                     <div className={styles.margin}>
                         <h1 className="text-center text-3xl p-5 text-cyan-300">Werk</h1>
                         <p className="text-xl">
-                            Ik heb bij 2 horeca's gewerkt en ben nu werkzaam bij de Albert Heijn. Ik wilde een beetje ervaring op bouwen bij
+                            Ik heb bij 2 horecas gewerkt en ben nu werkzaam bij de Albert Heijn. Ik wilde een beetje ervaring op bouwen bij
                             meerdere soorten bedrijven en daarom heb ik bij meerdere bedrijven gewerkt.
                         </p>
                     </div>

@@ -2,12 +2,12 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { env } from "../../../env/server.mjs";
+import nodeMailer from "nodemailer";
 
 export const mailRouter = createTRPCRouter({
     sendmail: publicProcedure.input(z.object({mailAdress: z.string().email()}).required())
     .mutation(async ({input}) => {
         console.log(`sendmail: ${input.mailAdress}`)
-        const nodeMailer = require('nodemailer');
         const transporter = nodeMailer.createTransport({
             service: `gmail`,
             auth: {
@@ -26,11 +26,12 @@ export const mailRouter = createTRPCRouter({
                 <b>Geboortedatum:</b> 25-01-2004 <br/>`,
         }
 
-        const sent:boolean = await transporter.sendMail(mailOptions,(error:any) => {
+        let sent = true
+
+        transporter.sendMail(mailOptions,(error:any) => {
             if(error){
                 return false
             }
-            return true
         });
             
         // send mail

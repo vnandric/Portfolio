@@ -64,7 +64,7 @@ const talen = () => {
                         <Link href="https://chillhub.nl/" target="_blank"><Image src={project5} alt="png" className={styles.pics}></Image></Link>
                         <p>
                             Met een groepje van 3 hebben we samen een project die wij gaan maken. Dit zal een livestream webpagina worden voor 
-                            DJ's.
+                            DJs.
                         </p>
                     </div>                  
                 </div>

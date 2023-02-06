@@ -3,7 +3,7 @@ import styles from "./form.module.css";
 import { api } from "../../src/utils/api";
 import { useState } from "react";
 
-const form = () => {
+const Form = () => {
     const sendMail = api.mail.sendmail.useMutation();
     const [email, setEmail] = useState<string>("");
 
@@ -31,4 +31,4 @@ const form = () => {
     )
 }
 
-export default form;
+export default Form;
