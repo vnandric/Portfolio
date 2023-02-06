@@ -23,7 +23,7 @@ const talen = () => {
                 <div className={styles.flex_box}>
                     <div className={styles.pic_box}>
                         <h3>Discord Bot</h3>
-                        <Image src={project1} alt="png" className={styles.pics}></Image>
+                        <Link href="https://github.com/PyroGamer010/Discord-bot/tree/main/materwelon" target="_blank"><Image src={project1} alt="png" className={styles.pics}></Image></Link>                        
                         <p>
                             Ik heb om te expirimenteren een klein discord bot gemaakt. Vandaag gebruiken wij hem wel eens en later wil
                             ik hem nog verder uitbreiden. om iets meer mee te kunnen doen.
@@ -60,7 +60,7 @@ const talen = () => {
                     </div>
 
                     <div className={styles.pic_box}>
-                        <h3>PHP CRUD</h3>
+                        <h3>Livestreaming</h3>
                         <Link href="https://chillhub.nl/" target="_blank"><Image src={project5} alt="png" className={styles.pics}></Image></Link>
                         <p>
                             Met een groepje van 3 hebben we samen een project die wij gaan maken. Dit zal een livestream webpagina worden voor 
