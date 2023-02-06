@@ -6,7 +6,7 @@ import nodeMailer from "nodemailer";
 
 export const mailRouter = createTRPCRouter({
     sendmail: publicProcedure.input(z.object({mailAdress: z.string().email()}).required())
-    .mutation(async ({input}) => {
+    .mutation(({input}) => {
         console.log(`sendmail: ${input.mailAdress}`)
         const transporter = nodeMailer.createTransport({
             service: `gmail`,
@@ -26,7 +26,7 @@ export const mailRouter = createTRPCRouter({
                 <b>Geboortedatum:</b> 25-01-2004 <br/>`,
         }
 
-        let sent = true
+        const sent = true
 
         transporter.sendMail(mailOptions,(error:any) => {
             if(error){
