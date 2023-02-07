@@ -20,8 +20,9 @@ export const mailRouter = createTRPCRouter({
             to: input.mailAdress,
             subject: `Gegevens Valentino Andric`,
             html: `Gegevens Valentino Andric: <br/><br/>
-                <b>Mail:</b> Valentino Andric <br/>
-                <b>Telefoon:</b> 06-37296714 <br/>
+                <b>Mail:</b> valentinoandric200425@gmail.com<br/>
+                <b>Schoolmail:</b> 87788@glr.nl<br/>
+                <b>Telefoon:</b> (+31)6-37296714 <br/>
                 <b>Adres:</b> Paradijsselpark 230, 2904 PA Capelle Aan Den IJssel <br/>
                 <b>Geboortedatum:</b> 25-01-2004 <br/>`,
         }
