@@ -6,7 +6,7 @@ import Uv from "../../components/under-navbar/uv";
 
 import About from "../../components/about/about";
 import Projecten from "../../components/projecten/projecten";
-import Form from "../../components/form/form";
+import Form from "../../components/form/Form";
 import { ScrollToTop } from "../../components/scrolltotop/ScrollToTop";
 
 const Home: NextPage = () => {
