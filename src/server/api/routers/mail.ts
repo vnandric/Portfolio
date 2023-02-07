@@ -24,7 +24,8 @@ export const mailRouter = createTRPCRouter({
                 <b>Schoolmail:</b> 87788@glr.nl<br/>
                 <b>Telefoon:</b> (+31)6-37296714 <br/>
                 <b>Adres:</b> Paradijsselpark 230, 2904 PA Capelle Aan Den IJssel <br/>
-                <b>Geboortedatum:</b> 25-01-2004 <br/>`,
+                <b>Geboortedatum:</b> 25-01-2004 <br/>
+                <b>CV</b> https://valentinoandric.nl/valentinoandriccv.pdf<br/>`,
         }
 
         const sent = true

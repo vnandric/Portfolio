@@ -1,10 +1,19 @@
 import styles from "./form.module.css";
 
 import { api } from "../../src/utils/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Alert from "../alert/Alert";
 
 const Form = () => {
-    const sendMail = api.mail.sendmail.useMutation();
+    const [mailSend, setMailSend] = useState<boolean>(false);
+    const sendMail = api.mail.sendmail.useMutation({
+        onSuccess: (data) => {
+            setMailSend(true);
+            setTimeout(() => {
+                setMailSend(false);
+            }, 3000);
+        }
+    });
     const [email, setEmail] = useState<string>("");
 
     return (
@@ -15,17 +24,19 @@ const Form = () => {
                 naar u verzonden worden met mijn gegevens!
             </p>
             <div className={styles.form}>
-                <input type="text" className="focus:outline-none" onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                <input type="text" value={email} className="focus:outline-none" onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                     setEmail(event.target.value);
                 }}/>
                 <button  onClick={() => {
                     sendMail.mutateAsync({mailAdress: email}).then(()=> {
                         console.log("mail verzonden");
+                        setEmail("");
                     }).catch((err) => {
                         console.log(err);
                     });
                     return;
                 }}>Verzend</button>
+                <Alert showAlert={mailSend} setShowAlert={setMailSend} message={"Email is verstuurd"} />
             </div>
         </div>       
     )
