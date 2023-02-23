@@ -9,7 +9,6 @@ const Login = () => {
     return (
         <div className={styles.flex}>
             <div className={styles.box}>
-                <img src="/chillhub.png" alt="jpg" />
 
                 <button className={styles.discord} onClick={ () => {
                 void signIn("discord");
