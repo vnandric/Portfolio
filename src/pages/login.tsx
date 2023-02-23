@@ -9,7 +9,7 @@ import Projecten from "../../components/projecten/projecten";
 import { ScrollToTop } from "../../components/scrolltotop/ScrollToTop";
 import Form from "../../components/form/From";
 
-const Home: NextPage = () => {
+const Login: NextPage = () => {
   return (
     <>
       <Head>
@@ -30,4 +30,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Login;

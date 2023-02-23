@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "../trpc";
-import { env } from "../../../env/server.mjs";
+import { env } from "../../../env.mjs";
 import nodeMailer from "nodemailer";
 
 export const mailRouter = createTRPCRouter({
@@ -15,6 +15,7 @@ export const mailRouter = createTRPCRouter({
                 pass: env.EMAIL_PASSWORD,
             }
         })
+
         const mailOptions = {
             from: env.EMAIL_USER,
             to: input.mailAdress,
@@ -31,7 +32,7 @@ export const mailRouter = createTRPCRouter({
         const sent = true
 
         await new Promise((resolve, reject) => {
-            transporter.sendMail(mailOptions,(error:any) => {
+            transporter.sendMail(mailOptions,(error) => {
                 if(error){
                     reject(error)
                 }
