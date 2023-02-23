@@ -1,5 +1,5 @@
 import Image from "next/image";
-import pfp from "../../src/media/pfp.jpg";
+import pfp from "../../../src/media/pfp.jpg";
 
 import styles from "./uv.module.css";
 

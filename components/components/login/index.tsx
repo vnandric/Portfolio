@@ -11,7 +11,7 @@ const Login = () => {
             <div className={styles.box}>
 
                 <button className={styles.discord} onClick={ () => {
-                void signIn("discord");
+                void signIn("discord", { callbackUrl: "http://localhost:3000/books" });
                 }}><b>Log in met discord</b></button>
             </div>
         </div>

@@ -1,13 +1,13 @@
 import { type NextPage } from "next";
 import Head from "next/head"; 
 
-import Navbar from "../../components/navbar-daisy/navbar";
-import Uv from "../../components/under-navbar/uv";
+import Navbar from "../../components/components/navbar-daisy/navbar";
+import Uv from "../../components/components/under-navbar/uv";
 
-import About from "../../components/about/about";
-import Projecten from "../../components/projecten/projecten";
-import { ScrollToTop } from "../../components/scrolltotop/ScrollToTop";
-import Form from "../../components/form/From";
+import About from "../../components/components/about/about";
+import Projecten from "../../components/components/projecten/projecten";
+import { ScrollToTop } from "../../components/components/scrolltotop/ScrollToTop";
+import Form from "../../components/components/form/From";
 
 const Home: NextPage = () => {
   return (

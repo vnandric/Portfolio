@@ -3,11 +3,11 @@ import styles from "./projecten.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-import project1 from "../../src/media/project1.png";
-import project2 from "../../src/media/project2.png";
-import project3 from "../../src/media/project3.png";
-import project4 from "../../src/media/project4.png";
-import project5 from "../../src/media/project5.png";
+import project1 from "../../../src/media/project1.png";
+import project2 from "../../../src/media/project2.png";
+import project3 from "../../../src/media/project3.png";
+import project4 from "../../../src/media/project4.png";
+import project5 from "../../../src/media/project5.png";
 
 const talen = () => {
     return (

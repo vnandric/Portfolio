@@ -38,6 +38,21 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      try {
+        if (user.email == undefined || typeof user.email !== "string") {
+          throw "Email is not a string";
+        } 
+
+        await prisma.admins.findFirstOrThrow({where: {email: user.email}}).catch((err) => {
+          throw err
+        });
+        return true;
+      } catch (error) {
+        console.log(error)
+        return false
+      }
+    },
     session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
