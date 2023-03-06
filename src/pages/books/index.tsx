@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import { useSession } from "next-auth/react";
 
-import Admin from "../../../components/admin";
+import Admin from "../../../components/admin/crud";
 
 
 const Books = () => {
