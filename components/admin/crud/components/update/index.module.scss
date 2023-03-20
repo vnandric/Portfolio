@@ -1,0 +1,54 @@
+.popupform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 500px;
+        height: 500px;
+        background-color: #202020;
+
+        p {
+            color: white;
+            font-size: 1.1rem;
+        }
+    
+        input {
+            width: 400px;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #171717;
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            margin: 10px;
+            padding: 3px;
+            text-align: center;
+        }
+    
+        button {
+            border-radius: 5px;
+            width: 100px;
+            height: 50px;
+            color: white;
+            margin: 10px;
+            background-color: #171717;
+            transition: 0.3s;
+            border: 1px solid white;
+            font-size: 1.1rem;
+        }
+    
+        button:hover {
+            color: cyan;
+            background-color: #252525;
+            border: 1px solid cyan;
+        }
+    }
+}

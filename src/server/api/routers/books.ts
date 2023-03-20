@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { prisma } from "../../db";
+import { get } from "http";
 
 
 export const booksRouter = createTRPCRouter({
@@ -53,43 +54,18 @@ export const booksRouter = createTRPCRouter({
             })
             return books;
         }),
-
-    // deletebooks: protectedProcedure.input(z.object({
-    //         id: z.string().min(1, "ID must be at least 1 character long")
-    //     }).required())
-    //     .mutation(async ({input}) => {
-    //         const books = await prisma.books.delete({
-    //             where: {
-    //                 id: input.id
-    //             }
-    //         })
-    //         return books;
-    //     })
     
-    // deletebooks: protectedProcedure
-    //         id: prisma.books.findUniqueOrThrow({where: {id: 1}})
-    //     .mutation(async () => {
-    //         const books = await prisma.books.delete({
-    //             where: {
-                    
-    //             }
-    //         })
-    //         return books;
-    //     }
-    
-    // deletebooks: protectedProcedure
-    //     .mutation(async () => {
-    //         const books = await prisma.books.deleteMany();
-    //         return books;
-    //     }) 
+        deletebooks: protectedProcedure
+        .input(z.object({id: z.string().min(1, "ID must be at least 1 character long")}).required())
+            .mutation(async ({input}) => {
+                const books = await prisma.books.delete({
+                    where: {
+                        id: input.id
+                    }
+                });
+                return books;
+            }) 
 
-    deletebooks: protectedProcedure.mutation(async () => {
-        const books = await prisma.books.findUniqueOrThrow()
-        await prisma.books.delete({
-            where: {
-                id: books.id
-            }
-        })
-        return books;
-    })
-});
+})
+
+    
