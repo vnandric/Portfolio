@@ -90,7 +90,7 @@ const Admin = () => {
                             <button onClick={() => {
                                 deleteBook.mutate({id: book.id});
 
-                                const index = books.findIndex((book) => book.id === book.id);
+                                const index = books.findIndex((findBook) => findBook.id === book.id);
                                 setBooks([...books.slice(0, index), ...books.slice(index + 1)]);
                             }}>Delete</button>
                             <button onClick={() => {
