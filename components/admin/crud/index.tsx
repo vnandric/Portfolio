@@ -91,8 +91,10 @@ const Admin = () => {
                                 deleteBook.mutate({id: book.id});
 
                                 const index = books.findIndex((findBook) => findBook.id === book.id);
+                                
+                                const index = books.findIndex((book) => book.id === book.id);
                                 setBooks([...books.slice(0, index), ...books.slice(index + 1)]);
-                            }}>Delete</button>
+                                }}>Delete</button>
                             <button onClick={() => {
                                 setShowPopup(book.id);
                             }}>Update</button>
