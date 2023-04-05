@@ -45,17 +45,22 @@ const Update = (props:props) => {
                         <input type="text" defaultValue={props.book.isbn} onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                             setIsbn(event.target.value);
                         }}/>
-                        <button onClick={() => {
-                            if(props.book == undefined) return;
-                            updateBook.mutate({
-                                id: props.book?.id,
-                                title: title,
-                                author: author,
-                                description: description,
-                                isbn: isbn
-                            });
-                            props.close(undefined);
-                        }}>Send</button>
+                        <div className={styles.thaButtons}>
+                            <button onClick={() => {
+                                if(props.book == undefined) return;
+                                updateBook.mutate({
+                                    id: props.book?.id,
+                                    title: title,
+                                    author: author,
+                                    description: description,
+                                    isbn: isbn
+                                });
+                                props.close(undefined);
+                            }}>Send</button>
+                            <button onClick={() => {
+                                props.close(undefined);
+                            }}>Close</button>
+                        </div>
                     </div>
                 </div>
 

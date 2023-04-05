@@ -54,17 +54,19 @@ export const booksRouter = createTRPCRouter({
             })
             return books;
         }),
+
+
     
-        deletebooks: protectedProcedure
-        .input(z.object({id: z.string().min(1, "ID must be at least 1 character long")}).required())
-            .mutation(async ({input}) => {
-                const books = await prisma.books.delete({
-                    where: {
-                        id: input.id
-                    }
-                });
-                return books;
-            }) 
+    deletebooks: protectedProcedure
+    .input(z.object({id: z.string().min(1, "ID must be at least 1 character long")}).required())
+        .mutation(async ({input}) => {
+            const books = await prisma.books.delete({
+                where: {
+                    id: input.id
+                }
+            });
+            return books;
+        }) 
 
 })
 
