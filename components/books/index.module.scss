@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .getBooks {
+        width: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .img {
+            width: auto;
+            height: 400px;
+            margin: 10px;
+        }
+    }
+}
