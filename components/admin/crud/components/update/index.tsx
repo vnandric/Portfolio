@@ -11,10 +11,10 @@ type props = {
     onSuccess?: (data:Books) => void
 }
 const Update = (props:props) => {
-    const [title, setTitle] = useState<string>("");
-    const [author, setAuthor] = useState<string>("");
-    const [description, setDescription] = useState<string>("");
-    const [isbn, setIsbn] = useState<string>("");
+    const [title, setTitle] = useState<string>(props.book?.title ?? "");
+    const [author, setAuthor] = useState<string>(props.book?.author ?? "");
+    const [description, setDescription] = useState<string>(props.book?.description ?? "");
+    const [isbn, setIsbn] = useState<string>(props.book?.isbn ?? "");
 
 
     const updateBook = api.book.updatebooks.useMutation({onSuccess: (data) => {
