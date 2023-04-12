@@ -3,6 +3,7 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { prisma } from "../../db";
 import { get } from "http";
+import { base64toBlob } from "~/server/functions/base64toblob";
 
 
 export const booksRouter = createTRPCRouter({
@@ -18,14 +19,16 @@ export const booksRouter = createTRPCRouter({
     createbooks: protectedProcedure.input(z.object({
             title: z.string().min(1, "Title must be at least 1 character long"),
             author: z.string().min(1, "Author must be at least 1 character long"),
-            description: z.string().min(1, "Description must be at least 1 character long"),
-            isbn: z.string().min(1, "ISBN must be at least 1 character long")
+            description: z.string().min(1, "Description must be at least 1 character long"),            
+            isbn: z.string().min(1, "ISBN must be at least 1 character long"),
+            image: z.string().min(1, "Image must be at least 1 character long")
         }).required())
         .mutation(async ({input}) => {
             const books = await prisma.books.create({
                 data: {
                     title: input.title,
                     author: input.author,
+                    // image: await base64toBlob(input.image),
                     description: input.description,
                     isbn: input.isbn
                 }

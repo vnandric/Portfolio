@@ -17,6 +17,7 @@ const Admin = () => {
     const [title, setTitle] = useState<string>("");
     const [author, setAuthor] = useState<string>("");
     const [description, setDescription] = useState<string>("");
+    const [image, setImage] = useState<string>(""); // :) 
     const [isbn, setIsbn] = useState<string>("");
 
     const [showPopup, setShowPopup] = useState<string | undefined>(undefined);
@@ -40,9 +41,8 @@ const Admin = () => {
     }});
 
     if(getBooks.isLoading && getBooks.data == undefined) return (<p>Loading...</p>);
-    
-    //if (status == "authenticated") {
-        return (
+        
+    return (
             <>
                 {showPopup != undefined && getBooks.data != undefined  ?
                     <Update onSuccess={(data) => {
@@ -68,14 +68,33 @@ const Admin = () => {
                     <input type="text" onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setIsbn(event.target.value);
                     }}/>
+                    <input type="file" onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        console.log(event.target.files);
+                        
+                        if(event.target.files == null || event.target.files[0] == undefined) {
+                            return;
+                        }
+                                                const reader = new FileReader();
+                        reader.readAsDataURL(event.target.files[0]);
+                        reader.onload = function () {
+                          setImage(reader.result as string);
+                        };
+                        reader.onerror = function (error) {
+                          console.log('Error: ', error);
+                        };
+
+                    } } />
                     <button onClick={() => 
+                    {
+                        console.log(image, typeof image);
                         void createBooks.mutateAsync({
                             title: title,
                             author: author,
+                            image:`${image}`,
                             description: description,
                             isbn: isbn
                         })
-                        
+                    }
                     }>Send</button>
                 </div>
 
@@ -110,6 +129,5 @@ const Admin = () => {
             </>
         )
     }
-//}
 
 export default Admin;
