@@ -6,9 +6,25 @@ import { type Dispatch, type SetStateAction, useState } from 'react';
 import { type Books } from '@prisma/client';
 
 type props = {
-    book?: Books
+    book?: {
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        author: string;
+        description: string;
+        isbn: string;
+    }
     close: Dispatch<SetStateAction<string | undefined>>
-    onSuccess?: (data:Books) => void
+    onSuccess?: (data:{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        author: string;
+        description: string;
+        isbn: string;
+    }) => void
 }
 
 const Update = (props:props) => {

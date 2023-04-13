@@ -11,7 +11,15 @@ import richdad from '../../src/media/richdadpoordad.jpg';
 
 
 const Booksklant = () => {
-    const [books, setBooks] = useState<Books[]>([]);
+    const [books, setBooks] = useState<{
+        id: string;
+        createdAt: Date;
+        updatedAt: Date;
+        title: string;
+        author: string;
+        description: string;
+        isbn: string;
+    }[]>([]);
 
     const getBooks = api.book.getbooks.useQuery(undefined, {onSuccess: (data) => {
         setBooks(data);

@@ -1,4 +1,6 @@
-export async function base64toBlob(base64Data:string) {
-    const poep= await fetch(base64Data);
-    return await poep.blob();
+export function base64toBlob(base64Data: string) {
+  return Buffer.from(base64Data, "base64");
+}
+export function blobToBase64(blob: Buffer) {
+  return blob.toString("base64url");
 }
