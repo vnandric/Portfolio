@@ -9,11 +9,11 @@ import { signOut } from "next-auth/react";
 import Update from "./components/update";
 
 import { PrismaClient, type Books } from "@prisma/client";
-
+import ImageComp from "next"
 import type { InferGetServerSidePropsType,  NextPage } from "next";
 
-type pageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
-const Admin:NextPage<pageProps> = ({images}
+
+const Admin:NextPage = (
 ) => {
   const [books, setBooks] = useState<{
     id: string;
@@ -31,10 +31,17 @@ const Admin:NextPage<pageProps> = ({images}
   const [isbn, setIsbn] = useState<string>("");
 
   const [showPopup, setShowPopup] = useState<string | undefined>(undefined);
+  const uploadImage = api.book.uploadImage.useMutation(
+    {
+      onSuccess: (data) => {
+      setBooks([...books, data]);
 
+      }
+
+    });
   const createBooks = api.book.createbooks.useMutation({
     onSuccess: (data) => {
-      setBooks([...books, data]);
+      uploadImage.mutate({id: data.id, image: image});
     },
     onError: (err) => {
       console.log(err.message);
@@ -130,7 +137,6 @@ const Admin:NextPage<pageProps> = ({images}
             void createBooks.mutateAsync({
               title: title,
               author: author,
-              image: image.toString(),
               description: description,
               isbn: isbn,
             });
@@ -142,7 +148,9 @@ const Admin:NextPage<pageProps> = ({images}
 
       <div>
         <h1>Books</h1>
-        {books.map((book) => {
+        {books.map( (book) => {
+         
+         
                         return (
                             <>
                                 <div key={book.id}>
@@ -150,12 +158,9 @@ const Admin:NextPage<pageProps> = ({images}
                                     <p>{book.author}</p>
                                     <p>{book.description}</p>
                                     <p>{book.isbn}</p>
-                                    {images.map((image) => {
-                                        if (image.id === book.id) {
-                                            return <img src={image.image?.toString("base64")} alt={book.title} key={image.id} />
-                                        }
-                                    })
-                                    }
+                                    
+                                            <Image id={book.id} />
+                                     
                                 </div>
                                 <button onClick={() => {
                                     deleteBook.mutate({id: book.id});
@@ -178,18 +183,15 @@ const Admin:NextPage<pageProps> = ({images}
 
 export default Admin;
 
-
-export async function getServerSideProps() {
-    const prisma = new PrismaClient()
-    const images = await prisma.books.findMany({
-        select: {
-            id: true,
-            image: true,
-        }
-    })
-    return {
-      props: {
-        images: images
-      }, // will be passed to the page component as props
+const Image = ({ id }: { id: string }) => {
+  const [image, setImage] = useState<string>("");
+  useEffect(() => {
+    const getImage = async () => {
+      const response = await fetch("/api/books/images?id=" + id);
+      const data = await response.json();
+      setImage(data.image);
     }
-  }
+    getImage().catch(() => {});
+  }, []);
+  return <img src={image}  alt="Uploaded Image" />;
+};

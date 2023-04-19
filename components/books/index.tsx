@@ -38,7 +38,7 @@ const Booksklant = () => {
                             <div className={styles.getBooks}>
                                 <div key={book.id}>
                                     {/* <Image src={book.image} alt="Picture of the book" className={styles.img} /> */}
-                                    <Image src={richdad} alt="Picture of the book" className={styles.img}/>
+                                    <Image id={book.id} alt="Picture of the book" className={styles.img}/>
                                     <p>{book.description}</p>
                                 </div>
                             </div>                            

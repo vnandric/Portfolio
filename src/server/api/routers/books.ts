@@ -17,42 +17,56 @@ export const booksRouter = createTRPCRouter({
         author: true,
         description: true,
         isbn: true,
-        image: false,
+        imageString: false,
         createdAt: true,
         updatedAt: true,
       },
     });
     return books;
   }),
-  getImage: publicProcedure
+  uploadImage: protectedProcedure
     .input(
       z.object({
         id: z.string().min(1, "ID must be at least 1 character long"),
+        image: z.string().min(1, "Image must be at least 1 character long"),
       })
     )
     .mutation(async ({ input }) => {
-      const data = await prisma.books
-        .findUniqueOrThrow({
+      const books = await prisma.books
+        .findFirstOrThrow({
           where: {
             id: input.id,
           },
           select: {
-            image: true,
+            id: true,
           },
         })
         .catch(() => {
           throw new TRPCError({
-            message: "Image not found",
-            code: "NOT_FOUND",
+            code: "BAD_REQUEST",
+            message: "Book not found",
           });
         });
-      if (data.image == null)
-        throw new TRPCError({
-          message: "Image not found",
-          code: "NOT_FOUND",
-        });
-      return blobToBase64(data.image);
+      return await prisma.books.update({
+        where: {
+          id: input.id,
+        },
+        data: {
+          imageString: input.image,
+        },
+        select: {
+          id: true,
+          title: true,
+          author: true,
+          description: true,
+          isbn: true,
+          imageString: false,
+          createdAt: true,
+          updatedAt: true,
+        },
+      });
     }),
+
   createbooks: protectedProcedure
     .input(
       z
@@ -63,26 +77,16 @@ export const booksRouter = createTRPCRouter({
             .string()
             .min(1, "Description must be at least 1 character long"),
           isbn: z.string().min(1, "ISBN must be at least 1 character long"),
-          image: z.string().min(1, "Image must be at least 1 character long"),
         })
         .required()
     )
     .mutation(async ({ input }) => {
-      const books = await prisma.books.create({
+      return await prisma.books.create({
         data: {
           title: input.title,
           author: input.author,
           description: input.description,
           isbn: input.isbn,
-        },
-      });
-
-      return await prisma.books.update({
-        where: {
-          id: books.id,
-        },
-        data: {
-          image: base64toBlob(input.image),
         },
         select: {
           id: true,
@@ -90,7 +94,7 @@ export const booksRouter = createTRPCRouter({
           author: true,
           description: true,
           isbn: true,
-          image: false,
+          imageString: false,
           createdAt: true,
           updatedAt: true,
         },
@@ -128,7 +132,7 @@ export const booksRouter = createTRPCRouter({
           author: true,
           description: true,
           isbn: true,
-          image: false,
+          imageString: false,
           createdAt: true,
           updatedAt: true,
         },
@@ -155,7 +159,7 @@ export const booksRouter = createTRPCRouter({
           author: true,
           description: true,
           isbn: true,
-          image: false,
+          imageString: false,
           createdAt: true,
           updatedAt: true,
         },
