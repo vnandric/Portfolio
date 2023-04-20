@@ -7,10 +7,7 @@ import { useEffect, useState } from "react";
 import { signOut } from "next-auth/react";
 
 import Update from "./components/update";
-
-import { PrismaClient, type Books } from "@prisma/client";
-import ImageComp from "next"
-import type { InferGetServerSidePropsType,  NextPage } from "next";
+import type { NextPage } from "next";
 
 
 const Admin:NextPage = (
@@ -158,8 +155,7 @@ const Admin:NextPage = (
                                     <p>{book.author}</p>
                                     <p>{book.description}</p>
                                     <p>{book.isbn}</p>
-                                    
-                                            <Image id={book.id} />
+                                    <Image id={book.id}/>
                                      
                                 </div>
                                 <button onClick={() => {
@@ -188,10 +184,14 @@ const Image = ({ id }: { id: string }) => {
   useEffect(() => {
     const getImage = async () => {
       const response = await fetch("/api/books/images?id=" + id);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const data = await response.json();
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       setImage(data.image);
     }
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     getImage().catch(() => {});
-  }, []);
-  return <img src={image}  alt="Uploaded Image" />;
+  }, [id]);
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={image}  alt="Uploaded Image"  className={styles.image}/>;
 };
