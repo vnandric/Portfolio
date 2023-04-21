@@ -1,0 +1,31 @@
+.blok {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 80vw;
+        height: 800px;
+        padding-top: 20px;
+        background-color: #202020;
+        flex-wrap: wrap;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+.image {
+    height: 500px;
+    width: auto;
+}

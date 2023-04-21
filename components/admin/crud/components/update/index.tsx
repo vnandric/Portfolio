@@ -2,8 +2,7 @@
 import styles from './index.module.scss';
 
 import { api } from "../../../../../src/utils/api";
-import { type Dispatch, type SetStateAction, useState } from 'react';
-import { type Books } from '@prisma/client';
+import { type Dispatch, type SetStateAction, useState, useEffect } from 'react';
 
 type props = {
     book?: {
@@ -12,6 +11,7 @@ type props = {
         updatedAt: Date;
         title: string;
         author: string;
+        shortdescription: string;
         description: string;
         isbn: string;
     }
@@ -22,6 +22,7 @@ type props = {
         updatedAt: Date;
         title: string;
         author: string;
+        shortdescription: string;
         description: string;
         isbn: string;
     }) => void
@@ -30,6 +31,7 @@ type props = {
 const Update = (props:props) => {
     const [title, setTitle] = useState<string>(props.book?.title ?? "");
     const [author, setAuthor] = useState<string>(props.book?.author ?? "");
+    const [shortdescription, setShortdescription] = useState<string>(props.book?.shortdescription ?? "");
     const [description, setDescription] = useState<string>(props.book?.description ?? "");
     const [isbn, setIsbn] = useState<string>(props.book?.isbn ?? "");
 
@@ -54,8 +56,12 @@ const Update = (props:props) => {
                         <input type="text" defaultValue={props.book.author} onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                             setAuthor(event.target.value);
                         }}/>
+                        <p>Short description</p>
+                        <input type="text" defaultValue={props.book.shortdescription} onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                            setShortdescription(event.target.value);
+                        }}/>
                         <p>Description</p>
-                        <input type="text" defaultValue={props.book.description} onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        <textarea defaultValue={props.book.description} onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
                             setDescription(event.target.value);
                         }}/>
                         <p>ISBN</p>
@@ -69,6 +75,7 @@ const Update = (props:props) => {
                                     id: props.book?.id,
                                     title: title,
                                     author: author,
+                                    shortdescription: shortdescription,
                                     description: description,
                                     isbn: isbn
                                 });

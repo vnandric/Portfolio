@@ -4,6 +4,8 @@ import styles from './index.module.scss';
 import { api } from "../../src/utils/api";
 import { useEffect, useState } from 'react';
 
+import View from './view/index';
+
 
 const Booksklant = () => {
     const [books, setBooks] = useState<{
@@ -13,8 +15,11 @@ const Booksklant = () => {
         title: string;
         author: string;
         description: string;
+        shortdescription: string;
         isbn: string;
     }[]>([]);
+
+    const [showPopup, setShowPopup] = useState<string | undefined>(undefined);
 
     const getBooks = api.book.getbooks.useQuery(undefined, {onSuccess: (data) => {
         setBooks(data);
@@ -25,6 +30,21 @@ const Booksklant = () => {
     
     return (
         <>
+            {showPopup != undefined && getBooks.data != undefined ? (
+                <View
+                onSuccess={(data) => {
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                    const index = books.findIndex((book) => book.id === data.id);
+                    setBooks([
+                    ...books.slice(0, index),
+                    data,
+                    ...books.slice(index + 1),
+                    ]);
+                }}
+                close={setShowPopup}
+                book={getBooks.data.find((book) => book.id === showPopup)}
+                />
+            ) : null}
             <h1>Books</h1>
             <div className={styles.container}>
                 {books.map((book) => {
@@ -34,7 +54,10 @@ const Booksklant = () => {
                                 <div key={book.id}>
                                     {/* <Image src={book.image} alt="Picture of the book" className={styles.img} /> */}
                                     <Image id={book.id}/>
-                                    <p>{book.description}</p>
+                                    <p>{book.shortdescription}</p>
+                                    <button onClick={() => {
+                                        setShowPopup(book.id);
+                                    }}>View</button>
                                 </div>
                             </div>                            
                         </>

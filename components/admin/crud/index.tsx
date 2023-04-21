@@ -18,11 +18,13 @@ const Admin:NextPage = (
     updatedAt: Date;
     title: string;
     author: string;
+    shortdescription: string;
     description: string;
     isbn: string;
 }[]>([]);
   const [title, setTitle] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
+  const [shortdescription, setShortdescription] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [image, setImage] = useState<string>(""); // :)
   const [isbn, setIsbn] = useState<string>("");
@@ -93,13 +95,19 @@ const Admin:NextPage = (
             setAuthor(event.target.value);
           }}
         />
-        <p>Description</p>
+        <p>Short description</p>
         <input
           type="text"
           onInput={(event: React.ChangeEvent<HTMLInputElement>) => {
-            setDescription(event.target.value);
+            setShortdescription(event.target.value);
           }}
         />
+        <p>Description</p>
+        <textarea 
+          onInput={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+            setDescription(event.target.value);
+          }}>
+          </textarea>
         <p>ISBN</p>
         <input
           type="text"
@@ -134,6 +142,7 @@ const Admin:NextPage = (
             void createBooks.mutateAsync({
               title: title,
               author: author,
+              shortdescription: shortdescription,
               description: description,
               isbn: isbn,
             });
@@ -146,13 +155,12 @@ const Admin:NextPage = (
       <div>
         <h1>Books</h1>
         {books.map( (book) => {
-         
-         
                         return (
                             <>
                                 <div key={book.id}>
                                     <p>{book.title}</p>
                                     <p>{book.author}</p>
+                                    <p>{book.shortdescription}</p>
                                     <p>{book.description}</p>
                                     <p>{book.isbn}</p>
                                     <Image id={book.id}/>
