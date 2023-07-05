@@ -1,5 +1,5 @@
 import type { NextPage } from "next/types";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { type Dispatch, type SetStateAction, useEffect } from "react";
 
 type props = {
     showAlert: boolean;

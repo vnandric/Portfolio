@@ -1,13 +1,13 @@
 import styles from "./form.module.css";
 
 import { api } from "../../../src/utils/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Alert from "../alert/Alert";
 
 const Form = () => {
     const [mailSend, setMailSend] = useState<boolean>(false);
     const sendMail = api.mail.sendmail.useMutation({
-        onSuccess: (data) => {
+        onSuccess: () => {
             setMailSend(true);
             setTimeout(() => {
                 setMailSend(false);
